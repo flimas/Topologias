@@ -1,0 +1,141 @@
+git clone
+git checkout -b “nome-da-branch”
+modifica oq precisar
+git status - mostra o que foi modificado
+
+
+git add <arquivo>
+git commit -m “msg do commit descrevendo oq mudou”
+git push origin <nome da branch>
+
+
+
+
+
+
+create a new repository on the command line
+
+
+echo "# Topologias" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/flimas/Topologias.git
+git push -u origin master
+push an existing repository from the command line
+
+
+git remote add origin https://github.com/flimas/Topologias.git
+git push -u origin master
+
+
+MERGE master com o branch changes por linha de comando
+**Step 1:** From your project repository, bring in the changes and test.
+ git fetch origin
+git checkout -b changes origin/changes
+git merge master
+
+
+**Step 2:** Merge the changes and update on GitHub.
+ git checkout master
+git merge --no-ff changes
+git push origin master
+
+
+Primeiros comandos git
+# git config user.name "user"
+# git config user.email "email@dom.com"
+# git config core.editor [vim | emacs | nano | etc]
+
+
+Listar os parâmetros definidos no git
+# git config --list
+# git config user.name
+# git status
+
+
+Dentro do diretório iniciar o repositório do git
+# git init
+# git add <file>
+sempre antes de commit tem que adicionar git add para poder realizar o commit
+# git commit -m "comentário da alteração"
+caso o arquivo ja tenha sido adicionado no git pode-se realizar o commit com git commit -am "mensagem"
+# git log 
+          --decorate
+          --author="<nome>"
+          --graph
+# git shortlog
+          --sn
+
+
+Com git log descobre-se o hash do commit com esse hash pode consultar as alterações realizadas neste commit
+# get show <hash>
+
+
+Verificando as alterações antes do commit
+# git diff
+          --name-only
+
+
+Caso queira desistir das alterações, sem executar o commit.
+# git checkout <file>
+
+
+Caso já tenha adicionado a modificação com git add <file>
+# git reset HEAD <file> e depois o git checkout
+
+
+Apos o commit, escolhe o penúltimo commit, dois dele em diante serão excluidos
+# git reset <hash>
+          --soft      Elimina o último commit, mantem as modificações no arquivo, arquivo em staged (como se ja tivesse sido add)
+          --mixed  Elimina o commit e retorna o arquivo para modified (arquivo em modified necessita ser add para fazer o commit)
+          --hard     Elimina tudo do commit
+
+
+Criação de Branch (branch são os apontamentos para os snapshots)
+# git checkout -b <nome branch>
+# git checkout <nome branch> //para acessar
+# git branch -D <nome do branch> //remove o branch
+
+
+Unir os BRANCH merge or rebase
+--> Merge mantem todos os commit de todos os Branch, logo é necessário 1 commit para unir os branch
+--> Rebase a partir de um commit de um dos branch transforma em um commit com todas as alterações e todos os branch apontam para ele
+
+
+# git merge <nome branch>
+# git rebase <nome branch>
+# git log --graph
+
+
+#########################################################
+
+
+GIT stash armazena as modificações em um ambiente temporario, bom para criar um branch sem essas alterações
+# git stash
+# git stash apply
+# git stash list
+# git stash clear
+
+
+ALIAS 
+# git config --global alias.<nome do alias>  <comando>
+
+
+TAGS cria versões permitindo baixar as diferença conforme as tags
+# git tag -a 1.0.0 -m "mensagem"
+# git push <repositório (origin)> master --tags
+
+
+Revert
+# git revert <hash do ultimo commit> //ele criar um commit novo sem as alterações realizadas no ultimo commit
+
+
+
+
+Remover tags e branch remotos
+local
+# git [ tag | branch ] -D <tag | branch>
+remoto
+# git push <nome repo> :<tag | branch>
+
