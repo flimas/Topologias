@@ -9,22 +9,15 @@ git commit -m “msg do commit descrevendo oq mudou”
 git push origin <nome da branch>
 
 
-
-
-
-
 create a new repository on the command line
-
-
 echo "# Topologias" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/flimas/Topologias.git
 git push -u origin master
+
 push an existing repository from the command line
-
-
 git remote add origin https://github.com/flimas/Topologias.git
 git push -u origin master
 
